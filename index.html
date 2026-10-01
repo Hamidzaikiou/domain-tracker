@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تتبع مبيعات النطاقات الحية</title>
+    <title>Live Domain Sales Tracker</title>
     <style>
         body {
             font-family: Tahoma, Arial, sans-serif;
@@ -65,7 +65,7 @@
         }
         th, td {
             padding: 12px;
-            text-align: right;
+            text-align: left;
             border-bottom: 1px solid #ddd;
         }
         th {
@@ -91,12 +91,12 @@
 <body>
 
 <div class="container">
-    <h1>مبيعات النطاقات اللحظية</h1>
+    <h1>Live Domain Sales Tracker</h1>
     
     <div class="controls">
-        <input type="text" id="searchInput" placeholder="ابحث باسم الدومين..." onkeyup="filterTable()">
+        <input type="text" id="searchInput" placeholder="Search domain..." onkeyup="filterTable()">
         <div class="filters">
-            <button class="filter-btn active" onclick="filterVenue('All', this)">الكل</button>
+            <button class="filter-btn active" onclick="filterVenue('All', this)">All</button>
             <button class="filter-btn" onclick="filterVenue('Sedo', this)">Sedo</button>
             <button class="filter-btn" onclick="filterVenue('Afternic', this)">Afternic</button>
             <button class="filter-btn" onclick="filterVenue('Atom', this)">Atom</button>
@@ -107,14 +107,14 @@
     <table id="salesTable">
         <thead>
             <tr>
-                <th>اسم النطاق (Domain)</th>
-                <th>الثمن (Price)</th>
-                <th>المنصة (Venue)</th>
-                <th>التاريخ (Date)</th>
+                <th>Domain Name</th>
+                <th>Price</th>
+                <th>Venue</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody id="tableBody">
-            <!-- سيتم تعبئة البيانات أوتوماتيكياً من ملف sales.json -->
+            <!-- Data will be loaded automatically from sales.json -->
         </tbody>
     </table>
 </div>
@@ -123,21 +123,21 @@
     let allSalesData = [];
     let currentVenue = 'All';
 
-    // جلب البيانات من ملف sales.json
+    // Fetch data from sales.json
     fetch('sales.json')
         .then(response => response.json())
         .then(data => {
             allSalesData = data;
             displayTable(allSalesData);
         })
-        .catch(error => console.error('خطأ في تحميل البيانات:', error));
+        .catch(error => console.error('Error loading data:', error));
 
     function displayTable(data) {
         const tbody = document.getElementById('tableBody');
         tbody.innerHTML = '';
         
         if (data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">لا توجد نتائج مطابقة</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No matching records found</td></tr>';
             return;
         }
 
