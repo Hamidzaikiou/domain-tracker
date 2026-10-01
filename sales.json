@@ -1,0 +1,50 @@
+[
+    {
+        "domain": "hyperflow.io",
+        "price": "15,000 USD",
+        "date": "2026-10-01",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "neurotech.ai",
+        "price": "42,000 USD",
+        "date": "2026-10-01",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "primeassets.com",
+        "price": "8,500 USD",
+        "date": "2026-10-01",
+        "venue": "Atom"
+    },
+    {
+        "domain": "orbitmail.co",
+        "price": "6,200 USD",
+        "date": "2026-10-01",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "cryptoshield.io",
+        "price": "19,000 USD",
+        "date": "2026-10-01",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "veloxcloud.ai",
+        "price": "31,000 USD",
+        "date": "2026-10-01",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "EcoLogistics.com",
+        "price": "12,400 USD",
+        "date": "2026-10-01",
+        "venue": "Atom"
+    },
+    {
+        "domain": "fastpay.net",
+        "price": "9,800 USD",
+        "date": "2026-10-01",
+        "venue": "Spaceship"
+    }
+]
