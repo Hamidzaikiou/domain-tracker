@@ -13,7 +13,7 @@
             color: #333;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: #fff;
             padding: 20px;
@@ -30,11 +30,12 @@
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 20px;
+            align-items: center;
         }
         input[type="text"] {
             padding: 10px;
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 14px;
@@ -58,15 +59,21 @@
             background-color: #3498db;
             color: #fff;
         }
+        .count-info {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         th, td {
-            padding: 12px;
+            padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            font-size: 14px;
         }
         th {
             background-color: #f8f9fa;
@@ -76,9 +83,9 @@
             background-color: #f1f1f1;
         }
         .badge {
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 11px;
             color: #fff;
             background-color: #7f8c8d;
         }
@@ -104,9 +111,12 @@
         </div>
     </div>
 
+    <div class="count-info" id="countInfo">Showing up to 100 sales</div>
+
     <table id="salesTable">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Domain Name</th>
                 <th>Price</th>
                 <th>Venue</th>
@@ -114,7 +124,7 @@
             </tr>
         </thead>
         <tbody id="tableBody">
-            <!-- Data will be loaded automatically from sales.json -->
+            <!-- Data will be loaded automatically -->
         </tbody>
     </table>
 </div>
@@ -128,7 +138,7 @@
         .then(response => response.json())
         .then(data => {
             allSalesData = data;
-            displayTable(allSalesData);
+            filterTable();
         })
         .catch(error => console.error('Error loading data:', error));
 
@@ -136,14 +146,20 @@
         const tbody = document.getElementById('tableBody');
         tbody.innerHTML = '';
         
-        if (data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No matching records found</td></tr>';
+        // تحديد عرض أول 100 صفقة فقط في الصفحة
+        const limitedData = data.slice(0, 100);
+
+        document.getElementById('countInfo').innerText = `Showing ${limitedData.length} of ${data.length} sales`;
+
+        if (limitedData.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No matching records found</td></tr>';
             return;
         }
 
-        data.forEach(item => {
+        limitedData.forEach((item, index) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
+                <td>${index + 1}</td>
                 <td><strong>${item.domain}</strong></td>
                 <td><span style="color: #27ae60; font-weight: bold;">${item.price}</span></td>
                 <td><span class="badge ${item.venue}">${item.venue}</span></td>
