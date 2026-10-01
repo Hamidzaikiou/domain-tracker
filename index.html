@@ -1,51 +1,81 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Sales Tracker - تتبع مبيعات الدومينات</title>
+    <title>Domain Sales Tracker - NameBio Style</title>
     <style>
         body {
-            background-color: #0b0f19;
-            color: #f3f4f6;
-            font-family: Tahoma, sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         header {
-            text-align: center;
-            margin-bottom: 30px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
         }
-        h1 {
-            color: #ffffff;
-        }
-        .highlight {
+        h2 {
             color: #10b981;
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        input, select {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #333;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .stats {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 15px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #1f2937;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: right;
+            background: #ffffff;
+            text-align: left;
         }
         th, td {
-            padding: 12px;
-            border-bottom: 1px solid #374151;
-        }
-        th {
-            background: #111827;
-            color: #9ca3af;
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
             font-size: 14px;
         }
-        .domain-name {
-            color: #34d399;
-            font-weight: bold;
+        th {
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+        }
+        .domain-link {
+            color: #0284c7;
+            text-decoration: none;
+        }
+        .domain-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -53,52 +83,127 @@
 
 <div class="container">
     <header>
-        <h1>تتبع مبيعات الدومينات <span class="highlight">Tracker</span></h1>
-        <p>أرشيف مبيعات الدومينات الحية لجميع الامتدادات</p>
+        <h2>Domain Sales Tracker</h2>
+        <div class="stats" id="entryCount">Showing entries</div>
     </header>
 
-    <table>
+    <!-- الفلاتر المتقدمة -->
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search keyword (e.g. .com, ai)..." onkeyup="filterTable()">
+        
+        <select id="venueFilter" onchange="filterTable()">
+            <option value="ALL">All Venues</option>
+            <option value="Sedo">Sedo</option>
+            <option value="Afternic">Afternic</option>
+            <option value="Dynadot">Dynadot</option>
+            <option value="GoDaddy">GoDaddy</option>
+        </select>
+    </div>
+
+    <!-- جدول المبيعات بنفس طريقة NameBio -->
+    <table id="salesTable">
         <thead>
             <tr>
-                <th>اسم الدومين</th>
-                <th>الامتداد (TLD)</th>
-                <th>الثمن (USD)</th>
-                <th>المنصة</th>
-                <th>التاريخ</th>
+                <th>Domain</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Venue</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="domain-name">ai.com</td>
-                <td>.com</td>
-                <td>$11,000,000</td>
-                <td>Private</td>
-                <td>2026-05-12</td>
-            </tr>
-            <tr>
-                <td class="domain-name">code.ai</td>
-                <td>.ai</td>
-                <td>$150,000</td>
+                <td><a href="#" class="domain-link">luven.de</a></td>
+                <td>7,900 EUR</td>
+                <td>2026-10-01</td>
                 <td>Sedo</td>
-                <td>2026-06-01</td>
             </tr>
             <tr>
-                <td class="domain-name">cloud.io</td>
-                <td>.io</td>
-                <td>$85,000</td>
+                <td><a href="#" class="domain-link">productivebot.com</a></td>
+                <td>4,000 USD</td>
+                <td>2026-10-01</td>
+                <td>DomainPlace.com</td>
+            </tr>
+            <tr>
+                <td><a href="#" class="domain-link">neuralbank.com</a></td>
+                <td>2,024 USD</td>
+                <td>2026-10-01</td>
+                <td>Dynadot</td>
+            </tr>
+            <tr>
+                <td><a href="#" class="domain-link">chasing.co</a></td>
+                <td>115 USD</td>
+                <td>2026-10-01</td>
+                <td>Dynadot</td>
+            </tr>
+            <tr>
+                <td><a href="#" class="domain-link">pocket.si</a></td>
+                <td>17,016 USD</td>
+                <td>2026-09-30</td>
+                <td>Dynadot</td>
+            </tr>
+            <tr>
+                <td><a href="#" class="domain-link">phound.com</a></td>
+                <td>15,499 USD</td>
+                <td>2026-09-30</td>
                 <td>Afternic</td>
-                <td>2026-06-15</td>
             </tr>
             <tr>
-                <td class="domain-name">shop.ma</td>
-                <td>.ma</td>
-                <td>$12,000</td>
-                <td>Direct</td>
-                <td>2026-06-20</td>
+                <td><a href="#" class="domain-link">superintelligence.app</a></td>
+                <td>9,495 USD</td>
+                <td>2026-09-30</td>
+                <td>Afternic</td>
+            </tr>
+            <tr>
+                <td><a href="#" class="domain-link">easycash.ch</a></td>
+                <td>9,140 USD</td>
+                <td>2026-09-30</td>
+                <td>Nameshift.com</td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<script>
+    function updateCount() {
+        let table = document.getElementById('salesTable');
+        let tr = table.getElementsByTagName('tr');
+        let visibleCount = 0;
+        for (let i = 1; i < tr.length; i++) {
+            if (tr[i].style.display !== "none") {
+                visibleCount++;
+            }
+        }
+        document.getElementById('entryCount').innerText = "Showing " + visibleCount + " entries";
+    }
+
+    function filterTable() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let venueSelect = document.getElementById('venueFilter').value;
+        let table = document.getElementById('salesTable');
+        let tr = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < tr.length; i++) {
+            let tdDomain = tr[i].getElementsByTagName('td')[0];
+            let tdVenue = tr[i].getElementsByTagName('td')[3];
+
+            if (tdDomain && tdVenue) {
+                let domainText = tdDomain.textContent || tdDomain.innerText;
+                let venueText = tdVenue.textContent || tdVenue.innerText;
+
+                let matchesSearch = domainText.toLowerCase().indexOf(input) > -1;
+                let matchesVenue = (venueSelect === 'ALL' || venueText === venueSelect);
+
+                if (matchesSearch && matchesVenue) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        updateCount();
+    }
+    updateCount();
+</script>
 
 </body>
 </html>
