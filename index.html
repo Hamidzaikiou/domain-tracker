@@ -1,208 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Sales Tracker - NameBio Style</title>
+    <title>تتبع مبيعات النطاقات الحية</title>
     <style>
         body {
-            background-color: #f8f9fa;
-            color: #333333;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: #f4f7f6;
             margin: 0;
             padding: 20px;
+            color: #333;
         }
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            background: #ffffff;
+            background: #fff;
             padding: 20px;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        header {
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+        h1 {
+            text-align: center;
+            color: #2c3e50;
         }
-        h2 {
-            color: #10b981;
-            margin: 0 0 10px 0;
-            font-size: 20px;
-        }
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 20px;
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 6px;
         }
-        input, select {
+        input[type="text"] {
+            padding: 10px;
             width: 100%;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
+            max-width: 300px;
+            border: 1px solid #ccc;
             border-radius: 4px;
-            padding: 8px 12px;
-            color: #333;
             font-size: 14px;
-            box-sizing: border-box;
         }
-        .stats {
+        .filters {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        button.filter-btn {
+            padding: 8px 15px;
+            border: 1px solid #3498db;
+            background-color: #fff;
+            color: #3498db;
+            border-radius: 4px;
+            cursor: pointer;
             font-size: 14px;
-            color: #64748b;
-            margin-bottom: 15px;
+            transition: 0.2s;
+        }
+        button.filter-btn.active, button.filter-btn:hover {
+            background-color: #3498db;
+            color: #fff;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #ffffff;
-            text-align: left;
+            margin-top: 10px;
         }
         th, td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 14px;
+            padding: 12px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
         }
         th {
-            background: #f8fafc;
-            color: #475569;
-            font-weight: 600;
+            background-color: #f8f9fa;
+            color: #2c3e50;
         }
-        .domain-link {
-            color: #0284c7;
-            text-decoration: none;
+        tr:hover {
+            background-color: #f1f1f1;
         }
-        .domain-link:hover {
-            text-decoration: underline;
+        .badge {
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #fff;
+            background-color: #7f8c8d;
         }
+        .Sedo { background-color: #e74c3c; }
+        .Afternic { background-color: #3498db; }
+        .Atom { background-color: #9b59b6; }
+        .Spaceship { background-color: #e67e22; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h2>Domain Sales Tracker</h2>
-        <div class="stats" id="entryCount">Showing entries</div>
-    </header>
-
-    <!-- الفلاتر المتقدمة -->
-    <div class="filters">
-        <input type="text" id="searchInput" placeholder="Search keyword (e.g. .com, ai)..." onkeyup="filterTable()">
-        
-        <select id="venueFilter" onchange="filterTable()">
-            <option value="ALL">All Venues</option>
-            <option value="Sedo">Sedo</option>
-            <option value="Afternic">Afternic</option>
-            <option value="Dynadot">Dynadot</option>
-            <option value="GoDaddy">GoDaddy</option>
-        </select>
+    <h1>مبيعات النطاقات اللحظية</h1>
+    
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="ابحث باسم الدومين..." onkeyup="filterTable()">
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterVenue('All', this)">الكل</button>
+            <button class="filter-btn" onclick="filterVenue('Sedo', this)">Sedo</button>
+            <button class="filter-btn" onclick="filterVenue('Afternic', this)">Afternic</button>
+            <button class="filter-btn" onclick="filterVenue('Atom', this)">Atom</button>
+            <button class="filter-btn" onclick="filterVenue('Spaceship', this)">Spaceship</button>
+        </div>
     </div>
 
-    <!-- جدول المبيعات بنفس طريقة NameBio -->
     <table id="salesTable">
         <thead>
             <tr>
-                <th>Domain</th>
-                <th>Price</th>
-                <th>Date</th>
-                <th>Venue</th>
+                <th>اسم النطاق (Domain)</th>
+                <th>الثمن (Price)</th>
+                <th>المنصة (Venue)</th>
+                <th>التاريخ (Date)</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><a href="#" class="domain-link">luven.de</a></td>
-                <td>7,900 EUR</td>
-                <td>2026-10-01</td>
-                <td>Sedo</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">productivebot.com</a></td>
-                <td>4,000 USD</td>
-                <td>2026-10-01</td>
-                <td>DomainPlace.com</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">neuralbank.com</a></td>
-                <td>2,024 USD</td>
-                <td>2026-10-01</td>
-                <td>Dynadot</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">chasing.co</a></td>
-                <td>115 USD</td>
-                <td>2026-10-01</td>
-                <td>Dynadot</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">pocket.si</a></td>
-                <td>17,016 USD</td>
-                <td>2026-09-30</td>
-                <td>Dynadot</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">phound.com</a></td>
-                <td>15,499 USD</td>
-                <td>2026-09-30</td>
-                <td>Afternic</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">superintelligence.app</a></td>
-                <td>9,495 USD</td>
-                <td>2026-09-30</td>
-                <td>Afternic</td>
-            </tr>
-            <tr>
-                <td><a href="#" class="domain-link">easycash.ch</a></td>
-                <td>9,140 USD</td>
-                <td>2026-09-30</td>
-                <td>Nameshift.com</td>
-            </tr>
+        <tbody id="tableBody">
+            <!-- سيتم تعبئة البيانات أوتوماتيكياً من ملف sales.json -->
         </tbody>
     </table>
 </div>
 
 <script>
-    function updateCount() {
-        let table = document.getElementById('salesTable');
-        let tr = table.getElementsByTagName('tr');
-        let visibleCount = 0;
-        for (let i = 1; i < tr.length; i++) {
-            if (tr[i].style.display !== "none") {
-                visibleCount++;
-            }
+    let allSalesData = [];
+    let currentVenue = 'All';
+
+    // جلب البيانات من ملف sales.json
+    fetch('sales.json')
+        .then(response => response.json())
+        .then(data => {
+            allSalesData = data;
+            displayTable(allSalesData);
+        })
+        .catch(error => console.error('خطأ في تحميل البيانات:', error));
+
+    function displayTable(data) {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        
+        if (data.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">لا توجد نتائج مطابقة</td></tr>';
+            return;
         }
-        document.getElementById('entryCount').innerText = "Showing " + visibleCount + " entries";
+
+        data.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>${item.domain}</strong></td>
+                <td><span style="color: #27ae60; font-weight: bold;">${item.price}</span></td>
+                <td><span class="badge ${item.venue}">${item.venue}</span></td>
+                <td>${item.date}</td>
+            `;
+            tbody.appendChild(tr);
+        });
     }
 
     function filterTable() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let venueSelect = document.getElementById('venueFilter').value;
-        let table = document.getElementById('salesTable');
-        let tr = table.getElementsByTagName('tr');
-
-        for (let i = 1; i < tr.length; i++) {
-            let tdDomain = tr[i].getElementsByTagName('td')[0];
-            let tdVenue = tr[i].getElementsByTagName('td')[3];
-
-            if (tdDomain && tdVenue) {
-                let domainText = tdDomain.textContent || tdDomain.innerText;
-                let venueText = tdVenue.textContent || tdVenue.innerText;
-
-                let matchesSearch = domainText.toLowerCase().indexOf(input) > -1;
-                let matchesVenue = (venueSelect === 'ALL' || venueText === venueSelect);
-
-                if (matchesSearch && matchesVenue) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-        updateCount();
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allSalesData.filter(item => {
+            const matchesSearch = item.domain.toLowerCase().includes(query);
+            const matchesVenue = currentVenue === 'All' || item.venue === currentVenue;
+            return matchesSearch && matchesVenue;
+        });
+        displayTable(filtered);
     }
-    updateCount();
+
+    function filterVenue(venue, btn) {
+        currentVenue = venue;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterTable();
+    }
 </script>
 
 </body>
