@@ -1,5 +1,227 @@
 [
     {
+        "domain": "stellarlab.ai",
+        "price": "18,500 USD",
+        "date": "2026-11-12",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "aiify.net",
+        "price": "4,200 USD",
+        "date": "2026-11-12",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "vertexpoint.ai",
+        "price": "4,200 USD",
+        "date": "2026-11-09",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "nextshield.co",
+        "price": "12,000 USD",
+        "date": "2026-11-06",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "hypernet.co",
+        "price": "4,200 USD",
+        "date": "2026-11-07",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "visionsync.co",
+        "price": "800 USD",
+        "date": "2026-11-12",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "primesync.dev",
+        "price": "12,000 USD",
+        "date": "2026-11-01",
+        "venue": "Atom"
+    },
+    {
+        "domain": "pulselab.com",
+        "price": "9,500 USD",
+        "date": "2026-11-11",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "zenbox.com",
+        "price": "9,500 USD",
+        "date": "2026-11-07",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "quantumtech.net",
+        "price": "6,800 USD",
+        "date": "2026-11-08",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "cyberware.net",
+        "price": "2,500 USD",
+        "date": "2026-11-06",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "visionify.co",
+        "price": "12,000 USD",
+        "date": "2026-10-28",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "novalabs.co",
+        "price": "65,000 USD",
+        "date": "2026-11-11",
+        "venue": "Atom"
+    },
+    {
+        "domain": "stellarnet.org",
+        "price": "18,500 USD",
+        "date": "2026-11-09",
+        "venue": "Atom"
+    },
+    {
+        "domain": "datahq.org",
+        "price": "2,500 USD",
+        "date": "2026-10-30",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "alphanet.net",
+        "price": "2,500 USD",
+        "date": "2026-11-08",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "clouddesk.ai",
+        "price": "4,200 USD",
+        "date": "2026-10-30",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "datacore.dev",
+        "price": "1,500 USD",
+        "date": "2026-11-08",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "primely.net",
+        "price": "2,500 USD",
+        "date": "2026-11-04",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "zenithvault.com",
+        "price": "6,800 USD",
+        "date": "2026-11-12",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "vectorbox.net",
+        "price": "12,000 USD",
+        "date": "2026-11-02",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "peakpay.net",
+        "price": "4,200 USD",
+        "date": "2026-11-06",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "primely.io",
+        "price": "48,000 USD",
+        "date": "2026-11-11",
+        "venue": "Atom"
+    },
+    {
+        "domain": "datahub.net",
+        "price": "12,000 USD",
+        "date": "2026-11-09",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "stellarlab.io",
+        "price": "65,000 USD",
+        "date": "2026-11-06",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "primelab.org",
+        "price": "18,500 USD",
+        "date": "2026-11-03",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "nexuspulse.io",
+        "price": "18,500 USD",
+        "date": "2026-11-03",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "vertexnet.ai",
+        "price": "18,500 USD",
+        "date": "2026-11-03",
+        "venue": "Atom"
+    },
+    {
+        "domain": "zenithbase.com",
+        "price": "9,500 USD",
+        "date": "2026-10-30",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "nexuslabs.com",
+        "price": "65,000 USD",
+        "date": "2026-11-08",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "swiftlab.dev",
+        "price": "27,000 USD",
+        "date": "2026-10-31",
+        "venue": "Atom"
+    },
+    {
+        "domain": "apexpulse.net",
+        "price": "35,000 USD",
+        "date": "2026-10-31",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "metaify.net",
+        "price": "4,200 USD",
+        "date": "2026-11-03",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "fluxdesk.ai",
+        "price": "48,000 USD",
+        "date": "2026-11-06",
+        "venue": "Afternic"
+    },
+    {
+        "domain": "nexuslab.co",
+        "price": "48,000 USD",
+        "date": "2026-11-04",
+        "venue": "Spaceship"
+    },
+    {
+        "domain": "visionpoint.dev",
+        "price": "1,500 USD",
+        "date": "2026-10-31",
+        "venue": "Sedo"
+    },
+    {
+        "domain": "cloudwave.io",
+        "price": "9,500 USD",
+        "date": "2026-10-29",
+        "venue": "Atom"
+    },
+    {
         "domain": "cloudcore.net",
         "price": "4,200 USD",
         "date": "2026-11-07",
@@ -1276,227 +1498,5 @@
         "price": "800 USD",
         "date": "2026-10-22",
         "venue": "Afternic"
-    },
-    {
-        "domain": "orbitstack.io",
-        "price": "65,000 USD",
-        "date": "2026-11-05",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "metaly.ai",
-        "price": "1,500 USD",
-        "date": "2026-10-28",
-        "venue": "Atom"
-    },
-    {
-        "domain": "smartly.org",
-        "price": "1,500 USD",
-        "date": "2026-11-02",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "nextify.org",
-        "price": "35,000 USD",
-        "date": "2026-10-24",
-        "venue": "Atom"
-    },
-    {
-        "domain": "blockify.dev",
-        "price": "9,500 USD",
-        "date": "2026-10-29",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "nexusify.co",
-        "price": "2,500 USD",
-        "date": "2026-10-24",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "fluxpulse.net",
-        "price": "800 USD",
-        "date": "2026-10-29",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "smartpay.dev",
-        "price": "65,000 USD",
-        "date": "2026-11-03",
-        "venue": "Atom"
-    },
-    {
-        "domain": "vectorpoint.ai",
-        "price": "12,000 USD",
-        "date": "2026-11-05",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "nextlabs.org",
-        "price": "1,500 USD",
-        "date": "2026-10-25",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "fluxly.io",
-        "price": "18,500 USD",
-        "date": "2026-10-31",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "smartware.io",
-        "price": "65,000 USD",
-        "date": "2026-10-25",
-        "venue": "Atom"
-    },
-    {
-        "domain": "vectorshield.net",
-        "price": "6,800 USD",
-        "date": "2026-10-25",
-        "venue": "Atom"
-    },
-    {
-        "domain": "visionsync.net",
-        "price": "9,500 USD",
-        "date": "2026-11-06",
-        "venue": "Atom"
-    },
-    {
-        "domain": "ailab.net",
-        "price": "48,000 USD",
-        "date": "2026-10-31",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "primepulse.com",
-        "price": "12,000 USD",
-        "date": "2026-11-01",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "vertextech.dev",
-        "price": "35,000 USD",
-        "date": "2026-11-05",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "stellardesk.org",
-        "price": "35,000 USD",
-        "date": "2026-11-03",
-        "venue": "Atom"
-    },
-    {
-        "domain": "nexusbox.co",
-        "price": "4,200 USD",
-        "date": "2026-10-25",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "cyberify.com",
-        "price": "800 USD",
-        "date": "2026-10-22",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "smartlab.ai",
-        "price": "2,500 USD",
-        "date": "2026-11-05",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "cybercore.com",
-        "price": "12,000 USD",
-        "date": "2026-10-24",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "quantumbox.co",
-        "price": "6,800 USD",
-        "date": "2026-11-02",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "aitech.io",
-        "price": "18,500 USD",
-        "date": "2026-11-06",
-        "venue": "Atom"
-    },
-    {
-        "domain": "apexflow.net",
-        "price": "48,000 USD",
-        "date": "2026-10-30",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "alphashield.org",
-        "price": "1,500 USD",
-        "date": "2026-11-05",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "cryptopulse.io",
-        "price": "1,500 USD",
-        "date": "2026-11-03",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "apexdesk.io",
-        "price": "35,000 USD",
-        "date": "2026-10-23",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "visionflow.org",
-        "price": "2,500 USD",
-        "date": "2026-10-25",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "zenvault.com",
-        "price": "2,500 USD",
-        "date": "2026-10-29",
-        "venue": "Sedo"
-    },
-    {
-        "domain": "cryptopulse.dev",
-        "price": "1,500 USD",
-        "date": "2026-10-29",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "synthhq.ai",
-        "price": "27,000 USD",
-        "date": "2026-10-26",
-        "venue": "Afternic"
-    },
-    {
-        "domain": "dataflow.ai",
-        "price": "27,000 USD",
-        "date": "2026-11-04",
-        "venue": "Spaceship"
-    },
-    {
-        "domain": "pulsely.org",
-        "price": "2,500 USD",
-        "date": "2026-11-03",
-        "venue": "Atom"
-    },
-    {
-        "domain": "orbitflow.net",
-        "price": "2,500 USD",
-        "date": "2026-10-30",
-        "venue": "Atom"
-    },
-    {
-        "domain": "novadesk.net",
-        "price": "4,200 USD",
-        "date": "2026-11-02",
-        "venue": "Atom"
-    },
-    {
-        "domain": "visionhq.dev",
-        "price": "800 USD",
-        "date": "2026-11-02",
-        "venue": "Spaceship"
     }
 ]
